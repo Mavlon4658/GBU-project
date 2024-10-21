@@ -1,0 +1,26 @@
+// Fonts
+@font-face {
+    font-family: 'Signel';
+    src: url('../fonts/Singel-SemiBoldDemo.otf') format('opentype'),
+         url('/fonts/Singel-SemiBoldDemo.ttf') format('truetype');
+    font-weight: 600;
+}
+
+$font-signel: 'Signel', sans-serif;
+// Fonts end
+
+// Colors
+// Colors end
+
+@mixin media($value) {
+    @if ($value < 0) {
+        @media screen and (min-width: calc($value * (-1)) + 'px') {
+            @content;
+        }
+
+    } @else {
+        @media screen and (max-width: $value + 'px') {
+            @content;
+        }
+    }
+}
