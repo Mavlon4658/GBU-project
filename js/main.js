@@ -12,7 +12,7 @@ homeSwp = new Swiper('.home .swiper', {
     effect: 'fade',
     loop: true,
     autoplay: {
-        delay: 3000,
+        delay: 5000,
     },
     navigation: {
         nextEl: '.home .swp_next',
