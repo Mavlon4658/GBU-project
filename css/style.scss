@@ -1253,7 +1253,7 @@ body, button {
     @include media(992) {
         margin: 20px 0 40px;
     }
-    
+
     a {
         font-size: 12px;
         line-height: 8px;
@@ -1499,3 +1499,110 @@ body, button {
     }
 }
 // Event end
+
+// Documents
+.documents {
+    margin-bottom: 100px;
+
+    @include media(992) {
+        margin-bottom: 50px;
+    }
+
+    &__title {
+        margin-bottom: 80px;
+        font-size: 40px;
+        line-height: 27px;
+
+        @include media(992) {
+            font-size: 25px;
+            line-height: 17px;
+            margin-bottom: 40px;
+        }
+    }
+
+    &__card {
+        gap: 100px;
+
+        @include media(992) {
+            gap: 50px;
+        }
+
+        &_item {
+            h3 {
+                font-size: 30px;
+                line-height: 20px;
+                padding-bottom: 40px;
+                margin-bottom: 60px;
+                border-bottom: 1px solid rgb(28, 25, 25);
+
+                @include media(992) {
+                    font-size: 20px;
+                    line-height: 14px;
+                    padding-bottom: 20px;
+                    margin-bottom: 40px;
+                }
+            }
+
+            ul {
+                gap: 20px;
+
+                @include media(992) {
+                    gap: 10px;
+                }
+
+                li {
+                    background: rgb(245, 245, 245);
+                    border-radius: 10px;
+                    padding: 20px 40px;
+                    gap: 23px;
+
+                    @include media(992) {
+                        padding: 20px 10px;
+                    }
+                }
+
+                div {
+                    gap: 20px;
+
+                    @include media(992) {
+                        gap: 10px;
+
+                        img {
+                            width: 30px;
+                        }
+                    }
+                }
+
+                img {
+                    flex-shrink: 0;
+                }
+
+                p {
+                    font-size: 16px;
+
+                    @include media (992) {
+                        font-size: 12px;
+                    }
+                }
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    flex-shrink: 0;
+
+                    @include media(992) {
+                        span {
+                            display: none;
+                        }
+
+                        img {
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// Documents end
