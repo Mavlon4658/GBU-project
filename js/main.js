@@ -102,3 +102,17 @@ menuClose.onclick = () => {
         bodyVisible();
     }, 300);
 }
+
+let eventSwp = new Swiper('.event__slider .swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 10,
+    breakpoints: {
+        992: {
+            spaceBetween: 40
+        }
+    },
+    navigation: {
+        nextEl: '.event__slider .swp_next',
+        prevEl: '.event__slider .swp_prev',
+    }
+})
