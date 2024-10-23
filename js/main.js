@@ -116,3 +116,78 @@ let eventSwp = new Swiper('.event__slider .swiper', {
         prevEl: '.event__slider .swp_prev',
     }
 })
+
+let serviceSwp = new Swiper('.service__slider .swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 10,
+    breakpoints: {
+        992: {
+            spaceBetween: 40
+        }
+    },
+    navigation: {
+        nextEl: '.service__slider .swp_next',
+        prevEl: '.service__slider .swp_prev',
+    }
+})
+
+function serviceNavigationActive () {
+    const nav = document.querySelector('.services__navigation');
+    if (nav) {
+        const stickyTop = nav.getBoundingClientRect().top;
+        
+        if (stickyTop <= 0) {
+            nav.classList.add('active'); 
+        } else {
+            nav.classList.remove('active');
+        }
+        
+        if (stickyTop <= 162) {
+            nav.classList.add('h-block'); 
+        } else {
+            nav.classList.remove('h-block');
+        }
+        
+        if (scrollY >= 372) {
+            nav.classList.remove('h-block');
+        }
+    }
+}
+
+serviceNavigationActive();
+
+let segments = [];
+document.querySelectorAll('[data-segment]').forEach(function(el) {
+    let segment = el.getAttribute('data-segment'),
+    top = el.getBoundingClientRect().top + window.pageYOffset;
+
+    document.querySelectorAll('[data-target-segment="' + segment + '"]').forEach(function(target) {
+        target.addEventListener('click', function() {
+            window.scrollTo({ top: top - 60, behavior: 'smooth' });
+        });
+    });
+
+    segments.push({
+        name: segment,
+        top: top - el.offsetHeight / 2
+    });
+});
+
+window.addEventListener('scroll', function() {
+    serviceNavigationActive()
+
+    let currentScrollTop = window.pageYOffset;
+    let matchSegments = segments.filter(function(segment) {
+        return currentScrollTop > segment.top;
+    });
+
+    if (matchSegments.length) {
+        let first = matchSegments[matchSegments.length - 1];
+        document.querySelectorAll('[data-target-segment]').forEach(function(el) {
+            el.classList.remove('active');
+        });
+        document.querySelectorAll('[data-target-segment="' + first.name + '"]').forEach(function(el) {
+            el.classList.add('active');
+        });
+    }
+});
